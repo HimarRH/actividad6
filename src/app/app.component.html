@@ -1,14 +1,18 @@
-<div class="flex justify-center w-full">
-  <div class="flex justify-left pl-4 pt-4 border-b-2 border-x-slate-500 w-1/6">
-    Actividad 6
+<div class="container">
+  <div class="row border-bottom border-secondary py-2">
+    <div class="col-12 col-lg-2">
+      Actividad 6
+    </div>
+    <div class="col-12 col-lg-10">
+      <nav class="nav">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        <a class="nav-link" routerLink="/newUser" routerLinkActive="active">Nuevo usuario</a>
+      </nav>
+    </div>
   </div>
-  <div class="flex justify-left pr-4 pt-4 border-b-2 border-x-slate-500 w-5/6">
-    <nav class="flex">
-      <a routerLink="/home" routerLinkActive="active">Home</a>
-      <a routerLink="/newUser" routerLinkActive="active">Nuevo usuario</a>
-    </nav>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</div>
-<div lass="flex justify-center w-full ">
-  <router-outlet></router-outlet>
 </div>
