@@ -3,6 +3,8 @@ import { User } from '../../../shared/interfaces/user.model';
 import { UserService } from '../../../shared/services/user.service';
 import { CardComponent } from "../../../shared/components/card/card.component";
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-home',
@@ -14,7 +16,9 @@ export class UserHomeComponent implements OnInit {
 
   users: User[] =[]
 
-  constructor (private userService: UserService) {
+  constructor (
+    private readonly route: Router,
+    private readonly userService: UserService) {
 
   }
 
@@ -23,8 +27,9 @@ export class UserHomeComponent implements OnInit {
 
   }
 
-  public onViewDetail(id: number){
+  public onViewDetail(id: string){
     console.log('view detail ' + id);
+    this.route.navigate(['/users', id]);
   }
 
   public onEdit(id: number){

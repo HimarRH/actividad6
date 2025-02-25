@@ -10,9 +10,13 @@ export class UserService {
 
   private apiUrl =  'https://peticiones.online/api/users';
 
-  constructor( private http: HttpClient) { }
+  constructor( private readonly http: HttpClient) { }
 
   getUsers(): Observable<any>{
     return this.http.get<any>(this.apiUrl);
+  }
+
+  getUserByID(id: string) : Observable<any>{
+    return this.http.get<User>(`${this.apiUrl}/${id}`);
   }
 }
