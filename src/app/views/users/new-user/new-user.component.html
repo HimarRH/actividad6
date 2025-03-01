@@ -1,0 +1,11 @@
+<div class="container mt-5">
+  <h2>Nuevo Usuario</h2>
+  <app-form (formSubmit)="onSubmit($event)"></app-form>
+  <div *ngIf="formInvalid" class="alert alert-danger mt-3">
+    Por favor, rellena todos los campos correctamente.
+  </div>
+  <div *ngIf="formSuccess" class="alert alert-success mt-3">
+    Usuario creado correctamente.
+  </div>
+  <button class="btn btn-primary mt-3" (click)="submitForm()">Guardar</button>
+</div>

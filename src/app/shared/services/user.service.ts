@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private apiUrl =  'https://peticiones.online/api/users';
+  private readonly apiUrl =  'https://peticiones.online/api/users';
 
   constructor( private readonly http: HttpClient) { }
 
@@ -19,4 +19,9 @@ export class UserService {
   getUserByID(id: string) : Observable<any>{
     return this.http.get<User>(`${this.apiUrl}/${id}`);
   }
+
+  createUser(user: User): Observable<User>{
+    return this.http.post<User>(this.apiUrl, user);
+  }
+
 }
