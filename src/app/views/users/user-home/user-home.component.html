@@ -8,9 +8,17 @@
         [lastname]="user.last_name"
         (viewDetail)="onViewDetail(user._id)"
         (edit)="onEdit(user._id)"
-        (delete)="onDelete(user._id)"
+        (delete)="onDelete(user)"
       ></app-card>
     </div>
   </div>
+
+
+  <app-delete-confirm
+    *ngIf="userDelete"
+    [itemName]="userDelete.first_name"
+    (confirm)="confirmDelete()"
+    (cancel)="cancelDelete()"
+  ></app-delete-confirm>
 </div>
 

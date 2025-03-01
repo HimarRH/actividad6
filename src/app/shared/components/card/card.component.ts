@@ -1,5 +1,4 @@
-import { DEFAULT_EXTENSIONS } from './../../../../../node_modules/@types/babel__core/index.d';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -7,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
-export class CardComponent implements OnInit {
+export class CardComponent  {
 
   @Input() imageUrl: string = '';
   @Input() name: string = '';
@@ -32,6 +31,5 @@ export class CardComponent implements OnInit {
 
 
   constructor() {}
-  ngOnInit() {}
 
 }

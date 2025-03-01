@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class NewUserComponent {
 
   @ViewChild(FormComponent)
-  private formComponent!: FormComponent;
+  private readonly formComponent!: FormComponent;
   formInvalid = false;
   formSuccess= false;
   constructor(private readonly userService: UserService, private readonly router: Router ) { }

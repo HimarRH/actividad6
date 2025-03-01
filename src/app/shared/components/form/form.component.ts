@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 
@@ -29,18 +29,22 @@ export class FormComponent implements OnInit {
     });
   }
   ngOnInit() {
-    if (this.user) {
-      this.userForm.patchValue(this.user);
-    }
+    this.patchUserForm();
   }
-  ngOnChanges(): void {
-    if (this.user) {
-      this.userForm.patchValue(this.user);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['user']) {
+      this.patchUserForm();
     }
   }
   onSubmit(): void{
     if(this.userForm.valid){
       this.formSubmit.emit(this.userForm);
+    }
+  }
+
+  private patchUserForm(): void {
+    if (this.user) {
+      this.userForm.patchValue(this.user);
     }
   }
 }
