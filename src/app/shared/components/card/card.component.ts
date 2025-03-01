@@ -28,8 +28,4 @@ export class CardComponent  {
     this.delete.emit();
   }
 
-
-
-  constructor() {}
-
 }

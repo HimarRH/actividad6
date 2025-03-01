@@ -9,7 +9,7 @@ export const routes: Routes = [
     {path: '', redirectTo: '/users', pathMatch: 'full'},
     {path: 'users', component: UserHomeComponent},
     {path: 'users/:id', component: UserDetailComponent},
-    {path:'newUser', component: NewUserComponent},
+    {path: 'newUser', component: NewUserComponent},
     {path: 'editUser/:id', component: EditUserComponent}
 
 ];
