@@ -1,0 +1,33 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="first_name" class="form-label">Nombre Usuario</label>
+    <input type="text" id="first_name" class="form-control" formControlName="first_name">
+    <div *ngIf="userForm.get('first_name')?.invalid && userForm.get('first_name')?.touched" class="text-danger">
+      Nombre es requerido y debe contener solo letras.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="last_name" class="form-label">Apellido Usuario</label>
+    <input type="text" id="last_name" class="form-control" formControlName="last_name">
+    <div *ngIf="userForm.get('last_name')?.invalid && userForm.get('last_name')?.touched" class="text-danger">
+      Apellido es requerido y debe contener solo letras.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email Usuario</label>
+    <input type="email" id="email" class="form-control" formControlName="email">
+    <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="text-danger">
+      Email es requerido y debe ser válido.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="image" class="form-label">Imagen de Usuario</label>
+    <input type="text" id="image" class="form-control" formControlName="image">
+    <div *ngIf="userForm.get('image')?.invalid && userForm.get('image')?.touched" class="text-danger">
+      Imagen es requerida y debe ser una URL válida.
+    </div>
+  </div>
+</form>
