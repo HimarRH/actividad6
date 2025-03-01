@@ -22,8 +22,8 @@ export class FormComponent implements OnInit {
 
   constructor(private readonly fb: FormBuilder) {
     this.userForm = this.fb.group({
-      first_name: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-      last_name: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      first_name: ['', [Validators.required, Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$')]],
+      last_name: ['',[Validators.required, Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],
       email: ['',[Validators.required, Validators.email]],
       image: ['',[Validators.required, Validators.pattern('https?://.+')]]
     });
@@ -33,7 +33,11 @@ export class FormComponent implements OnInit {
       this.userForm.patchValue(this.user);
     }
   }
-
+  ngOnChanges(): void {
+    if (this.user) {
+      this.userForm.patchValue(this.user);
+    }
+  }
   onSubmit(): void{
     if(this.userForm.valid){
       this.formSubmit.emit(this.userForm);

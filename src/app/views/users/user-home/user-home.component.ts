@@ -28,15 +28,14 @@ export class UserHomeComponent implements OnInit {
   }
 
   public onViewDetail(id: string){
-    console.log('view detail ' + id);
     this.route.navigate(['/users', id]);
   }
 
-  public onEdit(id: number){
-    console.log('edit' + id);
+  public onEdit(id: string){
+    this.route.navigate(['/editUser', id]);
   }
 
-  public onDelete(id: number){
+  public onDelete(id: string){
     console.log('delete' + id);
   }
 
